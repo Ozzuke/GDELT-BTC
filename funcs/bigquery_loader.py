@@ -90,7 +90,7 @@ def load_gdelt_from_bigquery(force_reload=False):
     # use force reload to ignore cache and load from BigQuery again
     if not force_reload and os.path.exists('../data/gdelt.csv'):
         print("Loading from cache...")
-        return pd.read_csv('../data/gdelt.csv', sep='\t', parse_dates=['Date'])
+        return pd.read_csv('../data/gdelt.csv', sep='\t', parse_dates=['Date'], low_memory=False)
 
     print("Loading from BigQuery...")
     os.makedirs('../data', exist_ok=True)
