@@ -51,7 +51,7 @@ def get_client():
     from google.cloud import bigquery
     from google.oauth2 import service_account
     credentials = service_account.Credentials.from_service_account_file(
-        'keys/BigQuery_GDELT_key.json'
+        '../keys/BigQuery_GDELT_key.json'
     )
     return bigquery.Client(credentials=credentials)
 
@@ -88,19 +88,19 @@ def process_query(query_job, chunk_size=10000):
 
 def load_gdelt_from_bigquery(force_reload=False):
     # use force reload to ignore cache and load from BigQuery again
-    if not force_reload and os.path.exists('data/gdelt.csv'):
+    if not force_reload and os.path.exists('../data/gdelt.csv'):
         print("Loading from cache...")
-        return pd.read_csv('data/gdelt.csv', sep='\t', parse_dates=['Date'])
+        return pd.read_csv('../data/gdelt.csv', sep='\t', parse_dates=['Date'])
 
     print("Loading from BigQuery...")
-    os.makedirs('data', exist_ok=True)
+    os.makedirs('../data', exist_ok=True)
 
     client = get_client()
     query_job = client.query(query)
     df = process_query(query_job)
 
     print("Saving to cache...")
-    df.to_csv('data/gdelt.csv', sep='\t', index=False)
+    df.to_csv('../data/gdelt.csv', sep='\t', index=False)
 
     print(f"Loaded {len(df)} rows")
     print("\nDate range:")

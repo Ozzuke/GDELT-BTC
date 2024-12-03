@@ -47,3 +47,19 @@
 - AvgTone (numeric) : average “tone”, -100..+100. Common values -10..+10, with 0 indicating neutral. This can be used as a method of filtering the “context” of events as a subtle measure of the importance of an event and as a proxy for the “impact” of that event. For example, a riot event with a slightly negative average tone is likely to have been a minor occurrence, whereas if it had an extremely negative average tone, it suggests a far more serious occurrence. A riot with a positive score likely suggests a very minor  occurrence described in the context of a more positive narrative (such as a report of an attack occurring in a discussion of improving conditions on the ground in a country and how the number of attacks per day has been greatly reduced).  
 
 Reference: [GDELT Event Codebook V2.0](http://data.gdeltproject.org/documentation/GDELT-Event_Codebook-V2.0.pdf)
+
+
+
+
+# BTC
+- **date** (*datetime*) : The date of the price data.
+- **Open** (*float*) : Price at the start of the day.
+- **High** (*float*) : Highest price during the day.
+- **Low** (*float*) : Lowest price during the day.
+- **Close** (*float*) : Price at the end of the day.
+- **Volume** (*float*) : Amount of Bitcoin traded during the day.
+- **Volume$** (*float*) : Total volume in USD traded during the day.
+- **Change** (*float*) : Change in price from Open to Close.
+- **Change%** (*float*) : Percentage change in price from Open to Close.
+- **Fluctuation** (*float*) : Difference between High and Low prices.
+- **Fluctuation%** (*float*) : Percentage fluctuation between High and Low prices.
