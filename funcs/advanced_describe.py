@@ -10,13 +10,15 @@ def advanced_describe(df, drop_cols=None):
     description_df['present'] = description_df['present'].astype(int).astype(str) + '%'
     description_df['share'] = description_df['freq'] / df.shape[0]
     description_df['share'] = description_df['share'].apply(lambda x: f'{x:.2%}' if not pd.isna(x) else None)
+    description_df['dtype'] = df.dtypes
+    description_df['sample'] = df.sample().T
 
-    description_df.drop(columns=['freq', '25%', '75%', 'std'])
+    description_df.drop(columns=['freq', '25%', '50%', '75%'])
 
     if drop_cols:
         description_df = description_df.drop(drop_cols, errors='ignore')
 
     # reorder columns
-    description_df = description_df[['present', 'unique', 'top', 'share', 'mean', 'min', '50%', 'max']]
+    # description_df = description_df[['present', 'unique', 'top', 'share', 'mean', 'min', '50%', 'max']]
 
     return description_df

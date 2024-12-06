@@ -1,6 +1,7 @@
-numpy>=1.26.4
-matplotlib>=3.8.4
-pandas>=2.2.2
-tqdm>=4.66.4
-google-cloud-bigquery>=3.27.0
+numpy
+matplotlib
+pandas
+tqdm
+google-cloud-bigquery
 seaborn
+torch
