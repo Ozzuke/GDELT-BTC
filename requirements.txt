@@ -5,3 +5,4 @@ tqdm
 google-cloud-bigquery
 seaborn
 torch
+joblib
